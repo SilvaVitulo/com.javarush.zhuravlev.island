@@ -1,4 +1,4 @@
-import com.javarush.zhuravlev.entities.herbivores.*;
+package com.javarush.zhuravlev.entities.herbivores;
 import com.javarush.zhuravlev.entities.*;
 import com.javarush.zhuravlev.island.CellZone;
 import java.util.concurrent.ThreadLocalRandom;
