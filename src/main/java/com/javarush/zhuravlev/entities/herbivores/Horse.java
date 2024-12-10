@@ -1,4 +1,4 @@
-package com.javarush.zhuravlev.entities.Herbivores;
+package com.javarush.zhuravlev.entities.herbivores;
 
 public class Horse extends Herbivores {
     public Horse() {

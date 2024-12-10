@@ -1,9 +1,11 @@
 package com.javarush.zhuravlev.island;
 
-import main.Entities.Animal;
-import main.Entities.Herbivores.*;
-import main.Entities.Plant;
-import main.Entities.Predator.*;
+import com.javarush.zhuravlev.entities.Animal;
+import com.javarush.zhuravlev.entities.Plant;
+import com.javarush.zhuravlev.entities.herbivores.*;
+import com.javarush.zhuravlev.entities.predator.*;
+import com.javarush.zhuravlev.utilit.Texts;
+import lombok.Getter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -54,7 +56,7 @@ public class CellZone implements Runnable {
         for (int i = 0; i < entitiesOnCell(animal); i++) {
             try {
                 animalsListOnCell.add(animal.getClass().getDeclaredConstructor().newInstance());
-            } catch (InstantiationException | IllegelAccessException | InvocationTargetException | NoSuchMethodException e) {
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 throw new RuntimeException(text.getINSTANCE_ERROR());
             }
         }
@@ -62,7 +64,7 @@ public class CellZone implements Runnable {
 
     //Метод добавляет в ячейку случайное количество растений (в диапазоне от 1 до максимального кол-ва)
     public void addPlantsOnCell() {
-        int plantsNumberOnCell = ThreadLocalRandom.current().nextInt(1, new Plants().maxPerCell + 1);
+        int plantsNumberOnCell = ThreadLocalRandom.current().nextInt(1, new Plant().maxPerCell + 1);
         for (int i = 0; i < plantsNumberOnCell; i++) {
             plantsListOnCell.add(new Plant());
         }

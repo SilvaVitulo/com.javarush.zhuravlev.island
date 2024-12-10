@@ -1,3 +1,9 @@
+package com.javarush;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
 /**
  * Юнит-тест для простого приложения.
  */
@@ -9,7 +15,7 @@ public class AppTest
      *
      * @param testName название тестового примера
      */
-    public AppTest(String testName )
+    public AppTest( String testName )
     {
         super( testName );
     }

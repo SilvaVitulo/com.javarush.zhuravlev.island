@@ -1,4 +1,4 @@
-package com.javarush.zhuravlev.entities.Predator;
+package com.javarush.zhuravlev.entities.predator;
 
 public class Boa extends Predator {
     public Boa() {

@@ -1,5 +1,7 @@
 package com.javarush.zhuravlev.utilit;
 
+import lombok.Getter;
+
 @Getter
 public class Texts {
 

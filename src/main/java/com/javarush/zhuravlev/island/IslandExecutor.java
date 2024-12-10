@@ -1,7 +1,8 @@
 package com.javarush.zhuravlev.island;
 
-import main.Entities.Animal;
-import main.Entities.Plant;
+import com.javarush.zhuravlev.entities.Animal;
+import com.javarush.zhuravlev.entities.Plant;
+import com.javarush.zhuravlev.utilit.Texts;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,6 @@
-package com.javarush.zhuravlev.entities.Predator;
-
-import main.Entities.Animal;
-import main.Island.CellZone;
-
+package com.javarush.zhuravlev.entities.predator;
+import com.javarush.zhuravlev.entities.Animal;
+import com.javarush.zhuravlev.island.CellZone;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Predator extends Animal {

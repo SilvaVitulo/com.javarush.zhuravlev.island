@@ -1,8 +1,8 @@
-package com.javarush.zhuravlev.entities.Herbivores;
+package com.javarush.zhuravlev.entities.herbivores;
 
-import main.Entities.Animal;
-import main.Entities.Plant;
-import main.Island.CellZone;
+import com.javarush.zhuravlev.entities.Animal;
+import com.javarush.zhuravlev.entities.Plant;
+import com.javarush.zhuravlev.island.CellZone;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -52,10 +52,10 @@ public class Herbivores extends Animal {
             }
         }
         // Если животное наполовину хищник и есть растения
-    } else if(cell.plantsListOnCell.size()>0) {
+    } else if (cell.plantsListOnCell.size() > 0) {
         if (this.actualSatiety + (int) ((plant.weight / (this.foodNeededForMaxSatiety / 100))) >= 100) {
             this.actualSatiety = 100;
-            cell.plantsListOnCell.remove(randomIndexForPlants);
+            cell.plantsListOnCell.remove(randomIndexForPlant);
         } else {
             this.actualSatiety += (int) ((plant.weight / (this.foodNeededForMaxSatiety / 100)) / 4);
             cell.plantsListOnCell.remove(randomIndexForPlant);

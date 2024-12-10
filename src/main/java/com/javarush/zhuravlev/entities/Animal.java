@@ -1,12 +1,12 @@
 package com.javarush.zhuravlev.entities;
 
-import main.Entities.Herbivores.Caterpillar;
-import main.Island.CellZone;
-import main.Params.AnimalParams;
-import main.Params.EntitiesParamsInitialization;
-import main.Unilit.Directions;
-import main.Unilit.Texts;
-
+import com.javarush.zhuravlev.entities.herbivores.Caterpillar;
+import com.javarush.zhuravlev.island.CellZone;
+import com.javarush.zhuravlev.island.Island;
+import com.javarush.zhuravlev.params.AnimalParams;
+import com.javarush.zhuravlev.params.EntitiesParamsInitialization;
+import com.javarush.zhuravlev.utilit.Directions;
+import com.javarush.zhuravlev.utilit.Texts;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -31,9 +31,9 @@ public abstract class Animal {
             this.weight = params.getWeight();
             this.maxPerCell = params.getMaxPerCell();
             this.maxSpeed = params.getMaxSpeed();
-            this.foodNeededForMaxSatiety = params.getFoodNeededForMaxSaiety();
+            this.foodNeededForMaxSatiety = params.getFoodNeededForMaxSatiety();
             this.actualSatiety = 100;
-            this.eatingProbability = params.getEatingProbability();
+            this.eatingProbability = params.getEatingProbabylity();
         } else {
             throw new IllegalArgumentException(text.getNAME_NOT_FOUND());
         }
@@ -90,8 +90,8 @@ public abstract class Animal {
         }
         this.actualSatiety -= 25;
 
-        if (cellCoordinateX > 0 && cellCoordinateY > 0 && cellCoordinateX < main.Island.getISLAND_HEIGHT() - 1
-            && cellCoordinateY < main.Island.getISLAND_WIDTH() - 1) {
+        if (cellCoordinateX > 0 && cellCoordinateY > 0 && cellCoordinateX < Island.getISLAND_HEIGT() - 1
+            && cellCoordinateY < Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 4);
             if (randomNumberOfDirection == 0) {
                 return Directions.UP;
@@ -105,7 +105,7 @@ public abstract class Animal {
         } else if (cellCoordinateX == 0 && cellCoordinateY == 0) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 2);
             return randomNumberOfDirection == 0 ? Directions.RIGHT : Directions.DOWN;
-        } else if (cellCoordinateX == 0 && cellCoordinateY > 0 && cellCoordinateY < main.Island.getISLAND_WIDTH() - 1) {
+        } else if (cellCoordinateX == 0 && cellCoordinateY > 0 && cellCoordinateY < Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 3);
             if (randomNumberOfDirection == 0) {
                 return Directions.RIGHT;
@@ -114,10 +114,10 @@ public abstract class Animal {
             } else if (randomNumberOfDirection == 2) {
                 return Directions.LEFT;
             }
-        } else if (cellCoordinateX == 0 && cellCoordinateY == main.Island.getISLAND_WIDTH() - 1) {
+        } else if (cellCoordinateX == 0 && cellCoordinateY == Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 2);
             return randomNumberOfDirection == 0 ? Directions.DOWN : Directions.LEFT;
-        } else if (cellCoordinateX > 0 && cellCoordinateY == 0 && cellCoordinateX < main.Island.getISLAND_HEIGHT()) {
+        } else if (cellCoordinateX > 0 && cellCoordinateY == 0 && cellCoordinateX < Island.getISLAND_HEIGT()) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 3);
             if (randomNumberOfDirection == 0) {
                 return Directions.UP;
@@ -126,8 +126,8 @@ public abstract class Animal {
             } else if (randomNumberOfDirection == 2) {
                 return Directions.DOWN;
             }
-        } else if (cellCoordinateX > 0 && cellCoordinateX < main.Island.getISLAND_HEIGHT() - 1
-                && cellCoordinateY == main.Island.getISLAND_WIDTH() - 1) {
+        } else if (cellCoordinateX > 0 && cellCoordinateX < Island.getISLAND_HEIGT() - 1
+                && cellCoordinateY == Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 3);
             if (randomNumberOfDirection == 0) {
                 return Directions.UP;
@@ -136,11 +136,11 @@ public abstract class Animal {
             } else if (randomNumberOfDirection == 2) {
                 return Directions.LEFT;
             }
-        } else if (cellCoordinateX == main.Island.getISLAND_HEIGHT() - 1 && cellCoordinateY == 0) {
+        } else if (cellCoordinateX == Island.getISLAND_HEIGT() - 1 && cellCoordinateY == 0) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 2);
             return randomNumberOfDirection == 0 ? Directions.UP : Directions.RIGHT;
-        } else if (cellCoordinateX == main.Island.getISLAND_HEIGHT() - 1 && cellCoordinateY > 0
-                && cellCoordinateY < main.Island.getISLAND_WIDTH() - 1) {
+        } else if (cellCoordinateX == Island.getISLAND_HEIGT() - 1 && cellCoordinateY > 0
+                && cellCoordinateY < Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 3);
             if (randomNumberOfDirection == 0) {
                 return Directions.UP;
@@ -149,7 +149,7 @@ public abstract class Animal {
             } else if (randomNumberOfDirection == 2) {
                 return Directions.LEFT;
             }
-        } else if (cellCoordinateX == main.Island.getISLAND_HEIGHT() - 1 && cellCoordinateY == main.Island.getISLAND_WIDTH() - 1) {
+        } else if (cellCoordinateX == Island.getISLAND_HEIGT() - 1 && cellCoordinateY == Island.getISLAND_WIDTH() - 1) {
             int randomNumberOfDirection = ThreadLocalRandom.current().nextInt(0, 2);
             return randomNumberOfDirection == 0 ? Directions.UP : Directions.LEFT;
         }
@@ -172,67 +172,67 @@ public abstract class Animal {
         int randomMovingDistance = ThreadLocalRandom.current().nextInt(0, this.maxSpeed + 1);
         if (direction == Directions.UP) {
             if (cellCoordinateX - randomMovingDistance >= 0) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX - randomMovingDistance][cellCoordinateY]
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX - randomMovingDistance][cellCoordinateY]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX - randomMovingDistance][cellCoordinateY]
+                    Island.arrayWithAllCells[cellCoordinateX - randomMovingDistance][cellCoordinateY]
                             .animalsListOnCell.add(this);
                     list.remove(index);
                 }
             } else if (cellCoordinateX - randomMovingDistance < 0) {
-                int cout = (int) main.Island.arrayWithAllCells[0][cellCoordinateY]
-                        .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).cout();
-                if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[0][cellCoordinateY].animalListOnCell.add(this);
+                int cout = (int) Island.arrayWithAllCells[0][cellCoordinateY]
+                        .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
+                if (this.maxPerCell < cout) {
+                    Island.arrayWithAllCells[0][cellCoordinateY].animalsListOnCell.add(this);
                     list.remove(index);
                 }
             }
         } else if (direction == Directions.RIGHT) {
-            if (cellCoordinateY + randomMovingDistance <= main.Island.getISLAND_WIDTH() - 1) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY + randomMovingDistance]
+            if (cellCoordinateY + randomMovingDistance <= Island.getISLAND_WIDTH() - 1) {
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY + randomMovingDistance]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY + randomMovingDistance]
+                    Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY + randomMovingDistance]
                             .animalsListOnCell.add(this);
                     list.remove(index);
                 }
-            } else if (cellCoordinateY + randomMovingDistance > main.Island.getISLAND_WIDTH() - 1) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX][main.Island.getISLAND_WIDTH() - 1]
+            } else if (cellCoordinateY + randomMovingDistance > Island.getISLAND_WIDTH() - 1) {
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX][Island.getISLAND_WIDTH() - 1]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX][main.Island.getISLAND_WIDTH()-1].animalsListOnCell.add(this);
+                    Island.arrayWithAllCells[cellCoordinateX][Island.getISLAND_WIDTH()-1].animalsListOnCell.add(this);
                     list.remove(index);
                 }
             }
         } else if (direction == Directions.DOWN) {
-            if (cellCoordinateX + randomMovingDistance <= main.Island.getISLAND_HEIGHT() - 1) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX + randomMovingDistance][cellCoordinateY]
+            if (cellCoordinateX + randomMovingDistance <= Island.getISLAND_HEIGT() - 1) {
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX + randomMovingDistance][cellCoordinateY]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX + randomMovingDistance][cellCoordinateY].animalsListOnCell.add(this);
+                    Island.arrayWithAllCells[cellCoordinateX + randomMovingDistance][cellCoordinateY].animalsListOnCell.add(this);
                     list.remove(index);
                 }
-            } else if (cellCoordinateX + randomMovingDistance > main.Island.getISLAND_HEIGHT() - 1) {
-                int count = (int) main.Island.arrayWithAllCells[main.Island.getISLAND_HEIGHT() - 1][cellCoordinateY]
+            } else if (cellCoordinateX + randomMovingDistance > Island.getISLAND_HEIGT() - 1) {
+                int count = (int) Island.arrayWithAllCells[Island.getISLAND_HEIGT() - 1][cellCoordinateY]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[main.Island.getISLAND_HEIGHT() - 1][cellCoordinateY].animalListOnCell.add(this);
+                    Island.arrayWithAllCells[Island.getISLAND_HEIGT() - 1][cellCoordinateY].animalsListOnCell.add(this);
                     list.remove(index);
                 }
             }
         } else if (direction == Directions.LEFT) {
             if (cellCoordinateY - randomMovingDistance >= 0) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY - randomMovingDistance]
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY - randomMovingDistance]
                         .animalsListOnCell.stream().filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY - randomMovingDistance].animalsListOnCell.add(this);
+                    Island.arrayWithAllCells[cellCoordinateX][cellCoordinateY - randomMovingDistance].animalsListOnCell.add(this);
                     list.remove(index);
                 }
             } else if (cellCoordinateY - randomMovingDistance < 0) {
-                int count = (int) main.Island.arrayWithAllCells[cellCoordinateX][0].animalsListOnCell.stream()
+                int count = (int) Island.arrayWithAllCells[cellCoordinateX][0].animalsListOnCell.stream()
                         .filter(x -> x.equals(this.getClass())).count();
                 if (this.maxPerCell < count) {
-                    main.Island.arrayWithAllCells[cellCoordinateX][0].animalsListOnCell.add(this);
+                    Island.arrayWithAllCells[cellCoordinateX][0].animalsListOnCell.add(this);
                     list.remove(index);
                 }
             }

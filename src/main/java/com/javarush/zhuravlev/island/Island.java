@@ -1,5 +1,7 @@
 package com.javarush.zhuravlev.island;
 
+import lombok.Getter;
+
 public class Island {
     //Размер острова по умолчанию
     private static final Integer ISLAND_HEIGHT = 80;
