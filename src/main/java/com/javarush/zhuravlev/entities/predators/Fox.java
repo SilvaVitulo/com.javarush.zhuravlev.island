@@ -1,4 +1,4 @@
-package com.javarush.zhuravlev.entities.predator;
+package com.javarush.zhuravlev.entities.predators;
 
 public class Fox extends Predator {
     public Fox() {

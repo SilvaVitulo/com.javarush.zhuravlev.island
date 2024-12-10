@@ -3,7 +3,7 @@ package com.javarush.zhuravlev.utilit;
 import lombok.Getter;
 
 @Getter
-public class Texts {
+public class Text {
 
     // Класс со всеми текстами для этого приложения
     private final String AREA_HEIGHT_REQUEST = "Пожалуйста, введите число больше 0 для обозначения высоты островной зоны!\n";

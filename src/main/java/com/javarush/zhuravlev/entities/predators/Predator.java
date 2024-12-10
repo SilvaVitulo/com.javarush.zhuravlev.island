@@ -1,4 +1,4 @@
-package com.javarush.zhuravlev.entities.predator;
+package com.javarush.zhuravlev.entities.predators;
 import com.javarush.zhuravlev.entities.Animal;
 import com.javarush.zhuravlev.island.CellZone;
 import java.util.concurrent.ThreadLocalRandom;

@@ -6,13 +6,13 @@ import com.javarush.zhuravlev.island.Island;
 import com.javarush.zhuravlev.params.AnimalParams;
 import com.javarush.zhuravlev.params.EntitiesParamsInitialization;
 import com.javarush.zhuravlev.utilit.Directions;
-import com.javarush.zhuravlev.utilit.Texts;
+import com.javarush.zhuravlev.utilit.Text;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Animal {
-    private static Texts text = new Texts();
+    private static Text text = new Text();
     public String emoji;
     public String simpleNameLowerCase;
     public double weight;

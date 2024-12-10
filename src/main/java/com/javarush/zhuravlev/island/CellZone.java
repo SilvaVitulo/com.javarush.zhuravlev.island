@@ -3,10 +3,9 @@ package com.javarush.zhuravlev.island;
 import com.javarush.zhuravlev.entities.Animal;
 import com.javarush.zhuravlev.entities.Plant;
 import com.javarush.zhuravlev.entities.herbivores.*;
-import com.javarush.zhuravlev.entities.predator.*;
-import com.javarush.zhuravlev.utilit.Texts;
+import com.javarush.zhuravlev.entities.predators.*;
+import com.javarush.zhuravlev.utilit.Text;
 import lombok.Getter;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Getter
 public class CellZone implements Runnable {
 
-    private static Texts text = new Texts();
+    private static Text text = new Text();
     public CopyOnWriteArrayList<Animal> animalsListOnCell = new CopyOnWriteArrayList<>();
     public CopyOnWriteArrayList<Plant> plantsListOnCell = new CopyOnWriteArrayList<>();
     private final Integer coordinateX;

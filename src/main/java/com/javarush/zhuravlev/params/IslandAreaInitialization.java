@@ -1,13 +1,14 @@
 package com.javarush.zhuravlev.params;
+import com.javarush.zhuravlev.utilit.Text;
 
 import java.util.Scanner;
 
+// Если вам нужен редактируемый размер острова, добавьте методы из этого класса в ISLAND_HEIGHT и ISLAND_WIDTH
+//Смотри аннотацию*
+@Deprecated
 public class IslandAreaInitialization {
 
-    // Если вам нужен редактируемый размер острова, добавьте методы из этого класса в ISLAND_HEIGHT и ISLAND_WIDTH
-    @Deprecated //Смотри аннотацию
-    public class IslandAreaInitialization {
-        private static Texts text = new Texts();
+        private static Text text = new Text();
 
         // Инициализация ISLAND_HEIGHT
         public static Integer areaHeightInput() {
@@ -57,4 +58,3 @@ public class IslandAreaInitialization {
             return number;
         }
     }
-}

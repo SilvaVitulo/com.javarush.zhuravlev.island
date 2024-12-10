@@ -2,7 +2,7 @@ package com.javarush.zhuravlev.island;
 
 import com.javarush.zhuravlev.entities.Animal;
 import com.javarush.zhuravlev.entities.Plant;
-import com.javarush.zhuravlev.utilit.Texts;
+import com.javarush.zhuravlev.utilit.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class IslandExecutor extends Thread {
-    private static Texts text = new Texts();
+    private static Text text = new Text();
     private static final int POOL_SIZE = 5;
     private static final int SCHEDULED_POOL_SIZE = 1;
     private static final int SIMULATION_DAYS = 100; //кол-во дней симуляции

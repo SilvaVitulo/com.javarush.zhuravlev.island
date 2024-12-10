@@ -1,17 +1,20 @@
 package com.javarush.zhuravlev.params;
 
+import com.javarush.zhuravlev.utilit.Text;
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 public class EntitiesParamsInitialization {
-    private static Texts text = new Texts();
+    private static Text text = new Text();
 
     //Заполняем эту карту параметрами из yaml с ключом animal name и значением AnimalParams
     private static final Map<String, AnimalParams> mapWithPatams = new HashMap<>();
     static {
         //Считывание байтов из yaml с помощью InputStream
-        try (InputStream inputStream = EntitesParamsInitialization.class
+        try (InputStream inputStream = EntitiesParamsInitialization.class
                 .getClassLoader()
                 .getResourceAsStream("Params_all_entities.yaml")) {
             if (inputStream == null) {
@@ -32,11 +35,11 @@ public class EntitiesParamsInitialization {
                 //Получить параметры для всех персональных переменных
                 params.setEmoji((String) values.get("emoji"));
                 params.setSimpleNameLowerCase((String) values.get("simple_name_to_lower_case"));
-                params.setWeigth((Double) values.get("weight"));
+                params.setWeight((Double) values.get("weight"));
                 params.setMaxPerCell((Integer) values.get("max_per_cell"));
                 params.setMaxSpeed((Integer) values.get("max_speed"));
                 params.setFoodNeededForMaxSatiety((Double) values.get("food_needed_for_max_satiety"));
-                params.setEatingProbability((Map<String, Integer>) values.get("eating_probability"));
+                params.setEatingProbabylity((Map<String, Integer>) values.get("eating_probability"));
 
                 mapWithPatams.put(entityName.toLowerCase(), params);
             }
